@@ -17,6 +17,9 @@ class FrenchDeck:
     def __getitem__(self, position):
         return self._cards[position]
 
+    def delete_card(self, card):
+        self._cards.remove(card)
+
 
 def get_blackjack_value(card):
     if isinstance(card, Card):
@@ -26,3 +29,5 @@ def get_blackjack_value(card):
             return 11
         else:
             return int(card.rank)
+    else:
+        raise AttributeError('Given object is not a Card!')
