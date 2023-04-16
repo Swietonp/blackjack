@@ -20,7 +20,9 @@ class Player:
     def set_total_value_of_cards(self):
         self.total = sum(map(get_blackjack_value, self.cards))
         if self.total > 21 and 'A' in [card.rank for card in self.cards]:
-            self.total -= 10
+            for card in self.cards:
+                if card.rank == 'A':
+                    self.total -= 10
 
     def print_current_state(self):
         if self.cards:
